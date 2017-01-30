@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128220546) do
+ActiveRecord::Schema.define(version: 20170129233933) do
 
-  create_table "author", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "name", limit: 50
+  create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "post", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string  "content",   limit: 500
-    t.string  "title",     limit: 50,  null: false
-    t.integer "author_id"
-    t.index ["author_id"], name: "post_author_id_fk", using: :btree
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",      limit: 50
+    t.string   "content",    limit: 250
+    t.integer  "author_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "slug",       limit: 30
+    t.index ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
   end
 
-  add_foreign_key "post", "author", name: "post_author_id_fk"
 end
