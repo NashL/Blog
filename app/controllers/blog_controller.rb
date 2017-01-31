@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
   #GET /posts
   def index
-    @posts=Post.all.limit(10)
+    @posts=Post.all.order(updated_at: :desc).limit(10)
   end
 
   #GET /posts/:slug
