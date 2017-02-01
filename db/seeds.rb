@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 author_list = [
-    "Danil Ishutin",
-    "Jonas Somfan",
-    "Ernesto Cuadros",
-    "Artour Babaev",
-    "Amer Barqawi"
+    ["Danil Ishutin", "danil@gmail.com", "123456"],
+    ["Jonas Somfan", "jsomfan@gmail.com", "123456"],
+    ["Ernesto Cuadros", "ecuadros@gmail.com", "123456"],
+    ["Artour Babaev", "arteezy@gmail.com", "123456"],
+    ["Amer Barqawi", "miracle@gmail.com", "123456"]
 ]
 
 post_list = [
@@ -22,10 +22,11 @@ post_list = [
     ["Bootstrap", "Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.", 5, "bootstrap"]
 ]
 
-author_list.each do |author|
-  Author.create( name: author )
+author_list.each do |name, email, password|
+  Author.create(name: name, email: email, password: password)
 end
 
 post_list.each do |title, content, author_id, slug|
-  Post.create( title: title, content: content, author_id: author_id, slug: slug)
+  Post.create(title: title, content: content, author_id: author_id, slug: slug)
 end
+

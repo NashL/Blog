@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :authors
   get 'blog/index'
 
   get 'blog_controller/index'

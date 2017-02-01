@@ -1,0 +1,25 @@
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+      <div class="blog-nav-left">
+      <%= link_to 'Home', root_path, class: 'blog-nav-item' %>
+      <% if author_signed_in? %>
+          <%= link_to 'Create Post', new_post_path, class: 'blog-nav-item' %>
+      <% else %>
+          <%= link_to 'New features', root_path, class: 'blog-nav-item' %>
+          <%= link_to 'Press', root_path, class: 'blog-nav-item' %>
+          <%= link_to 'New hires', root_path, class: 'blog-nav-item' %>
+          <%= link_to 'About', root_path, class: 'blog-nav-item' %>
+      <% end %>
+      </div>
+    <div class="blog-nav-right">
+      <% if author_signed_in? %>
+          <%= link_to 'Sign Out', destroy_author_session_path, method: :delete, class: 'blog-nav-item' %>
+      <% else %>
+          <%= link_to 'Sign In', new_author_session_path, class: 'blog-nav-item' %>
+          <%= link_to 'Sign Up', new_author_registration_path, class: 'blog-nav-item' %>
+      <% end %>
+    </div>
+    </nav>
+  </div>
+</div>

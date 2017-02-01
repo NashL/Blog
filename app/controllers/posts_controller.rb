@@ -1,14 +1,16 @@
 class PostsController < ApplicationController
-  layout 'admin'
-
   def new
     @post = Post.new
   end
 
   def create
-    @post = Post.new(title: params[:post][:title], content: params[:post][:content], author_id: params[:post][:author_id], slug: params[:post][:slug])
-    @post.save
-    redirect_to '/'
+    @post = Post.new(posts_params)
+    @post.author_id = current_author.id
+    if @post.save
+      redirect_to '/'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -17,7 +19,16 @@ class PostsController < ApplicationController
 
   def update
     @post= Post.find(params[:id])
-    @post.update(title: params[:post][:title], content: params[:post][:content], author_id: params[:post][:author_id], slug: params[:post][:slug])
-    redirect_to '/'
+    @post.author_id = current_author.id
+    if @post.update(posts_params)
+      redirect_to '/'
+    else
+      render :edit
+    end
+  end
+
+  private
+  def posts_params
+    params.require(:post).permit(:title, :content, :slug)
   end
 end

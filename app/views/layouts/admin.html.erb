@@ -8,25 +8,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-<div class="blog-masthead">
-  <div class="container">
-    <nav class="blog-nav">
-      <a class="blog-nav-item active" href="#">Home</a>
-    </nav>
-  </div>
-</div>
+<%= render 'partials/navbar' %>
 <div class="container">
   <div class="blog-header">
   </div>
   <div class="row">
-    <%= yield %>
-
-
+    <div class="col-sm-8 blog-main">
+      <%= yield %>
+    </div>
+    <%= render 'partials/sidebar' %>
   </div>
 </div>
 <footer class="blog-footer">
 </footer>
-
-
 </body>
 </html>

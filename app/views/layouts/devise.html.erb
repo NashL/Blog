@@ -4,17 +4,13 @@
   <title>Blog</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag 'blog', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'signin', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-<%= render 'partials/navbar' %>
-<%= render 'partials/device-alerts' %>
 <div class="container">
+  <%= render 'partials/device-alerts' %>
   <%= yield %>
 </div>
-<footer class="blog-footer">
-  <a href="#">Back to top</a>
-</footer>
 </body>
 </html>
