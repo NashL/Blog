@@ -7,5 +7,6 @@ class BlogController < ApplicationController
   #GET /posts/:slug
   def show
     @post=Post.find_by_slug(params[:slug])
+    @comment = Comment.new
   end
 end

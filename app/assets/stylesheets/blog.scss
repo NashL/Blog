@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+/*  font-family: Georgia, "Times New Roman", Times, serif;*/
   color: #555;
   position: relative;
   margin: 0;
@@ -194,3 +194,69 @@ h6, .h6 {
   color:#FF0000;
 }
 
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Comments */
+
+/* comments area */
+#comments {
+  display: block;
+}
+
+#comments .cmmnt, ul .cmmnt, ul ul .cmmnt {
+  display: block;
+  position: relative;
+  border-top: 1px solid #ddd;
+}
+
+#comments{
+  padding-left: 0px;
+}
+
+#comments .cmmnt .avatar  {
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+#comments .cmmnt .avatar img {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+  -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -ms-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+#comments .cmmnt .avatar a:hover img {
+  opacity: 0.77;
+}
+
+#comments .cmmnt .cmmnt-content {
+  padding: 0px 3px;
+  padding-top: 8px;
+}
+
+#comments .cmmnt .cmmnt-content header, #comments .cmmnt .comment-body {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+#comments .cmmnt .cmmnt-content header .pubdate {
+  color: #777;
+}
+
+#comments .cmmnt .cmmnt-content header .userlink {
+  font-weight: bold;
+}
+
+#comments .cmmnt .replies {
+  margin-bottom: 7px;
+}

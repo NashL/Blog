@@ -1,0 +1,13 @@
+<div id='container'>
+  <ul id='comments'>
+    <% @post.comments.each do |comment| %>
+        <li class='cmmnt'>
+          <div class='cmmnt-content'>
+            <header><a href='#' class='userlink'><%= comment.name %></a> -
+              <span class='pubdate'>posted <%= time_ago_in_words(comment.created_at) %> ago</span></header>
+            <p class="comment-body"><%= comment.body %></p>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>

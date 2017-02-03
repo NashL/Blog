@@ -1,0 +1,8 @@
+<h2 class="blog-post-title"><%= link_to post.title, "/blog/2017/january/#{post.slug}" %></h2>
+<p class="blog-post-meta"> <%= post.created_at.to_date %>
+  by <%= link_to post.author.name, author_posts_path(post.author) %>
+  <% if author_signed_in? %>
+      <%= link_to '(edit)', edit_post_path(post), class: 'model-action' %>
+  <% end %>
+</p>
+<p> <%= post.content %> </p>

@@ -1,11 +1,12 @@
-<div class="section-header">
-  <h1> <%= section_title %></h1>
+<div class="blog-header">
+  <h1 class=""> <%= section_title %></h1>
 </div>
 <%= form_for @post do |f| %>
     <% @post.errors.full_messages.each do |message| %>
         <div class="alert-danger">
           * <%= message %>
         </div>
+
     <% end %>
     <div class="form-group">
       <%= f.label :title %>
