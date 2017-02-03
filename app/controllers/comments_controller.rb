@@ -15,5 +15,9 @@ class CommentsController < ApplicationController
       format.json {render json: @posts}
     end
   end
+
+  def comments
+    render :json => {"results": [1,2,3]}
+  end
 end
 
