@@ -12,7 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20170201235409) do
 
-  create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "author", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "name", limit: 50
+  end
+
+  create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -30,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170201235409) do
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.text     "body",       limit: 65535
     t.integer  "post_id"
@@ -39,7 +43,14 @@ ActiveRecord::Schema.define(version: 20170201235409) do
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
   end
 
-  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "post", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string  "content",   limit: 500
+    t.string  "title",     limit: 50,  null: false
+    t.integer "author_id"
+    t.index ["author_id"], name: "post_author_id_fk", using: :btree
+  end
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title",      limit: 50
     t.string   "content",    limit: 250
     t.integer  "author_id"
@@ -49,4 +60,5 @@ ActiveRecord::Schema.define(version: 20170201235409) do
     t.index ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
   end
 
+  add_foreign_key "post", "author", name: "post_author_id_fk"
 end
