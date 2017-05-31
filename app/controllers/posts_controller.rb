@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_author!
+  before_action :authenticate_author!, except: [:index]
   before_action :set_post, except: [:new, :create, :index]
 
   def index
