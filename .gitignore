@@ -22,3 +22,6 @@ tags
 
 # Ignore files .swp
 *.swp
+
+# Ignore assets
+public/assets/
