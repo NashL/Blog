@@ -5,6 +5,7 @@
 <div class="row">
   <div class="col-sm-8 blog-main">
     <% @author = current_author %>
+	<%= react_component("Post") %>
     <% @posts.each do |post| %>
         <div class="blog-post">
           <%= render post %>
